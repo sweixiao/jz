@@ -1,0 +1,104 @@
+// 字体
+@for $z from 1 to 40 {
+	.fz-#{$z} {
+		font-size: $z * 2rpx !important;
+	}
+}
+
+// 边距
+@for $i from 1 to 100 {
+	.p-#{$i} {
+        padding:$i * 2rpx;
+	}
+    .pl-#{$i} {
+        padding-left:$i * 2rpx;
+	}
+    .pr-#{$i} {
+        padding-right:$i * 2rpx;
+	}
+    .pt-#{$i} {
+        padding-top:$i * 2rpx;
+	}
+    .pb-#{$i} {
+        padding-bottom:$i * 2rpx;
+	}
+    .m-#{$i} {
+        margin:$i * 2rpx;
+	}
+    .ml-#{$i} {
+        margin-left:$i * 2rpx;
+	}
+    .mr-#{$i} {
+        margin-right:$i * 2rpx;
+	}
+    .mt-#{$i} {
+        margin-top:$i * 2rpx;
+	}
+    .mb-#{$i} {
+        margin-bottom:$i * 2rpx;
+	}
+}
+.full-width{
+    width: 100%;
+}
+.full-height{
+    height:100%
+}
+
+.box{
+    display: flex;
+}
+
+.box-center{
+    justify-content: center;
+    align-items: center;
+}
+.box-column{
+    flex-direction: column;
+}
+.box-column-center{
+    align-items: center;
+}
+.box-around{
+    justify-content: space-around;
+}
+.box-between{
+    justify-content: space-between;
+}
+.box-start{
+    justify-content:flex-start;
+}
+.box-end{
+    justify-content:flex-end;
+}
+
+.box-1{
+   flex:1;
+}
+.border{
+    border: 1px solid #f6f6f6;
+}
+.radius{
+    border-radius: 50%;
+}
+.border-radius{
+    border-radius: 5px;
+}
+.blue-bck{
+    background: #2979ff;
+}
+.blue-color{
+    color: #2979ff;
+}
+.default-bck{
+    background: #f6f6f6;
+}
+.bck-white{
+    background: #fff;
+}
+.white{
+    color: #fff;
+}
+.bold{
+    font-weight: 600;
+}
