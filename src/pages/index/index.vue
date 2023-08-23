@@ -5,13 +5,13 @@
     <view class="content_box">
       <view class="box box-column box-center white">
         <text class="fz-14">月记账</text>
-        <text class="mt-10 fz-24">{{monthMoney?'-'+monthMoney:0}}</text>
+        <text class="mt-10 fz-24">{{ monthMoney ? "-" + monthMoney : 0 }}</text>
       </view>
 
       <view
         class="box box-around box-column-center mt-30 bck-white pt-10 pb-10 mr-15 ml-15 border-radius"
       >
-        <view class="box box-column box-column-center fz-12">
+        <view class="box box-column box-column-center fz-12" @click="toDetail">
           <image
             src="../../static/index_detail.png"
             alt=""
@@ -36,7 +36,8 @@
         <view
           class="pt-10 pb-10 box box-column-center"
           style="border-bottom: 2rpx solid #edeef4"
-          v-for="item in list" :key='item.id'
+          v-for="item in list"
+          :key="item.id"
         >
           <image
             :src="`../../static/img/${item.typeImg}.png`"
@@ -47,12 +48,12 @@
           ></image>
           <view class="box box-column-center box-between box-1 ml-15 pr-15">
             <view class="box box box-column">
-              <text>{{item.title}}</text>
+              <text>{{ item.title }}</text>
               <view class="fz-12 mt-5" style="color: #898989">
-                <text class="mr-15">{{item.date}}</text>
+                <text class="mr-15">{{ item.date }}</text>
               </view>
             </view>
-            <text class="bold">{{item.money}}</text>
+            <text class="bold">{{ item.money }}</text>
           </view>
         </view>
       </view>
@@ -64,23 +65,32 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import { getIndexList } from "@/apis/index";
-import { onShow } from "@dcloudio/uni-app"
-const list=ref([]);
+import { onShow } from "@dcloudio/uni-app";
+import moment from "moment";
+const list = ref([]);
 let monthMoney = ref(0);
-const getList =async ()=>{
-  let {code,data} =await getIndexList();
-  if(code===200){
-    list.value=data;
-    monthMoney.value=0;
-    data.forEach(item=>{
-      monthMoney.value+=item.money*1
-    })
+const getList = async () => {
+  let { code, data } = await getIndexList({
+    month: moment(new Date()).format("YYYY-MM"),
+  });
+  if (code === 200) {
+    list.value = data;
+    monthMoney.value = 0;
+    data.forEach((item) => {
+      monthMoney.value += item.money * 1;
+    });
   }
 };
-getList()
-onShow(()=>{
-  getList()
-})
+getList();
+onShow(() => {
+  getList();
+});
+
+const toDetail =()=>{
+  uni.navigateTo({
+    url:'/pages/jzDetail/index'
+  })
+};
 </script>
 
 <style lang='scss' scoped>

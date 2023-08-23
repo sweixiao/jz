@@ -24,6 +24,12 @@
       "style": {
         "navigationBarTitleText": "新增记账"
       }
+    },
+    {
+      "path": "pages/jzDetail/index",
+      "style": {
+        "navigationBarTitleText": "记账明细"
+      }
     }
   ],
   "globalStyle": {

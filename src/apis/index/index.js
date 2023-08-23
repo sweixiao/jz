@@ -6,3 +6,6 @@ export const addJzData = (params)=>{
 export const getIndexList = (params)=>{
   return  request().get('/index/getList',params)
 }
+export const getMonthDetailList = (params)=>{
+  return  request().get('/index/getMonthDetailList',params)
+}
